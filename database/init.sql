@@ -58,3 +58,28 @@ CREATE TABLE IF NOT EXISTS audit_log (
   target_id TEXT,
   created_at TEXT
 );
+
+CREATE TABLE IF NOT EXISTS material_recall_case (
+  id INTEGER PRIMARY KEY,
+  recall_no TEXT,
+  material_lot_no TEXT,
+  reason TEXT,
+  status TEXT,
+  created_by TEXT,
+  created_at TEXT
+);
+
+CREATE TABLE IF NOT EXISTS recall_disposition (
+  id INTEGER PRIMARY KEY,
+  disposition_no TEXT,
+  recall_id TEXT,
+  batch_id TEXT,
+  batch_no TEXT,
+  work_order_id TEXT,
+  order_no TEXT,
+  action TEXT,
+  approver TEXT,
+  reason TEXT,
+  disposed_by TEXT,
+  disposed_at TEXT
+);
