@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  # 原料召回处置使用本地内存库演示；关闭 DataSource/JPA 自动装配，
+  # 使服务在只有 web 环境时也能直接启动（PostgreSQL 表结构见 database/init.sql）。
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
